@@ -1,0 +1,21 @@
+<button (click)=toggleAdd() class="btn btn-primary">Add data</button>
+<div *ngIf="isEdittable == false">
+<form #feedbackForm ="ngForm" (submit)="onSubmit (feedbackForm.value)" (onload)="onReload (feedbackForm.value)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input ngModel name="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User name">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Feed back</label>
+    <input ngModel name="feedback" type="text" class="form-control" id="Feedback" placeholder="Feed Back">
+  </div>
+  <button type="submit" class="btn btn-primary">Add now !</button>
+</form>
+
+</div>
+<br><br>
+<h2>All feedback</h2>
+<ol>
+  <li *ngFor="let item of mDataarray">{{item.username}} : {{item.feedback}}</li>
+</ol>
